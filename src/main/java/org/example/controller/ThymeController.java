@@ -16,20 +16,21 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ThymeController {
     private final TestEntityService testEntityService;
-    @GetMapping("/")
+    /*@GetMapping("/")
     public String getWebPage(){
         return "thIndex";
-    }
+    }*/
 
+    @GetMapping("/")
+    public String getAll(Model model){
+        model.addAttribute("getAllEntities", testEntityService.getAll());
+        return "thIndex";
+    }
     @GetMapping("/getById")
     @ModelAttribute
     @ResponseBody
-    public Optional<TestEntity> getTestEntityById(@RequestParam Long id){
+    public Optional<TestEntity> getTestEntityById(@RequestParam(value = "id", required = false) Long id){
         return testEntityService.getById(id);
-    }
-    @GetMapping("/getAll")
-    public List<TestEntity> getAll(){
-        return testEntityService.getAll();
     }
 
 }

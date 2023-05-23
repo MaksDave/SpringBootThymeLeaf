@@ -1,3 +1,4 @@
+/*
 package org.example.config;
 
 import lombok.AllArgsConstructor;
@@ -20,7 +21,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 @EnableWebMvc
 @ComponentScan
 @AllArgsConstructor
-public class ThymeleafConfig implements ApplicationContextAware, WebMvcConfigurer {
+public class ThymeleafConfig implements WebMvcConfigurer {
 
     ApplicationContext applicationContext;
 
@@ -28,9 +29,12 @@ public class ThymeleafConfig implements ApplicationContextAware, WebMvcConfigure
         super();
     }
 
-    public void setApplicationContext(final ApplicationContext applicationContext)
+    */
+/*@Override
+    public void setApplicationContext(ApplicationContext applicationContext)
             throws BeansException {
-        this.applicationContext = applicationContext;
+        this.applicationContext = applicationContext;*//*
+
     }
 
     @Bean
@@ -38,7 +42,7 @@ public class ThymeleafConfig implements ApplicationContextAware, WebMvcConfigure
         // SpringResourceTemplateResolver automatically integrates with Spring's own
         // resource resolution infrastructure, which is highly recommended.
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-        templateResolver.setApplicationContext(this.applicationContext);
+        templateResolver.setApplicationContext(applicationContext);
         templateResolver.setPrefix("classpath:/templates/");
         templateResolver.setSuffix(".html");
         // HTML is the default value, added here for the sake of clarity.
@@ -82,3 +86,4 @@ public class ThymeleafConfig implements ApplicationContextAware, WebMvcConfigure
         registry.addResourceHandler("/js/**").addResourceLocations("/js/");
     }
 }
+*/

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="ISO-8859-1">
-  <title>Employee</title>
+  <title>TestEntity</title>
   <link rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -11,26 +11,28 @@
 <body>
 <div class="container my-2" align="center">
 
-  <h3>Employee List</h3>
-  <a th:href="@{/addnew}" class="btn btn-primary btn-sm mb-3" >Add Employee</a>
+  <h3>Test entities list</h3>
+  <a th:href="@{/getall}" class="btn btn-primary btn-sm mb-3" >Get all Test Entities</a>
   <table style="width:80%" border="1"
          class = "table table-striped table-responsive-md">
     <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
-      <th>Email</th>
-      <th>Action</th>
+      <th>File</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="employee:${allemplist}">
-      <td th:text="${employee.name}"></td>
-      <td th:text="${employee.email}"></td>
-      <td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}"
+    <tr th:each="testEntity:${getAllEntities}">
+      <td th:text="${testEntity.getId()}"></td>
+      <td th:text="${testEntity.getName()}"></td>
+      <td th:text="${testEntity.getFile()}"></td>
+
+      <!--<td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}"
               class="btn btn-primary">Update</a>
         <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}"
            class="btn btn-danger">Delete</a>
-      </td>
+      </td>-->
     </tr>
     </tbody>
   </table>
